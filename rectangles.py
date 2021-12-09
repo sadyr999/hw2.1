@@ -10,7 +10,6 @@ class Rectangle:
             temp_c = int(c)
         except:
             raise ValueError()
-            pass
 
         if temp_a < 0 or temp_b < 0 or temp_c < 0:
             raise ValueError()
