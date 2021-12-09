@@ -62,4 +62,6 @@ test_person.age_info(years_to_past)
 print("--TASK 4--")
 
 
-
+print("--TASK 5--")
+jason = {'first_name': 'Jason', 'last_name': 'Houston', 'age': 29, 'gender': 'male', 'hobby': 'video games', 'job': None}
+alice = {'first_name': 'Alice', 'last_name': 'Cooper', 'age': 21, 'gender': 'female', 'hobby': None, 'job': 'software engineer'}
