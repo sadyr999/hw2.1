@@ -36,7 +36,7 @@ class Person:
 
     def age_info(self, years):
         age_in_future = self.age + years
-        print(f" Person {self.name} / {self.gender} now is {self.age} years \nWill be {age_in_future} in {years}years")
+        print(f"Person {self.name} / {self.gender} now is {self.age} years \nWill be {age_in_future} in {years}years")
 
 name = input("Type in name: ")
 gender = input("Type in gender: ")
@@ -60,5 +60,33 @@ while True:
 test_person.age_info(years_to_past)
 
 print("--TASK 5--")
+import xlsxwriter
+
 jason = {'first_name': 'Jason', 'last_name': 'Houston', 'age': 29, 'gender': 'male', 'hobby': 'video games', 'job': None}
 alice = {'first_name': 'Alice', 'last_name': 'Cooper', 'age': 21, 'gender': 'female', 'hobby': None, 'job': 'software engineer'}
+
+def fill_excel(*args):
+    workbook = xlsxwriter.Workbook('hello.xlsx')
+    worksheet = workbook.add_worksheet()
+    worksheet.write('A1', 'first_name')
+    worksheet.write('B1', 'last_name')
+    worksheet.write('C1', 'age')
+    worksheet.write('D1', 'gender')
+    worksheet.write('E1', 'hobby')
+    worksheet.write('F1', 'job')
+
+    row = 1
+
+    for item in args:
+        worksheet.write(row, 0, item['first_name'])
+        worksheet.write(row, 1, item['last_name'])
+        worksheet.write(row, 2, item['age'])
+        worksheet.write(row, 3, item['gender'])
+        worksheet.write(row, 4, item['hobby'])
+        worksheet.write(row, 5, item['job'])
+        row += 1
+
+    workbook.close()
+
+
+fill_excel(jason, alice)
